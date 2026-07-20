@@ -105,3 +105,7 @@ function handleRequest(id: number) {
 
 console.log("4) good id :", handleRequest(1))
 console.log("4) bad id  :", handleRequest(99))
+
+// Makes this file a module so its top-level names stay local to it
+// (otherwise `AppError` here collides with the one in demo.ts).
+export {}

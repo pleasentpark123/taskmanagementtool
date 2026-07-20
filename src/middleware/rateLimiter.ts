@@ -12,10 +12,10 @@ export const rateLimiter: RequestHandler = async (req,res,next)=>{
             await redisClient.expire(key,60)
         }
     } catch (err) {
-        console.error("Rate limiter unavailable, allowing request:", err)
+        console.error("Redis connection issue:", err);
         return next()
     }
-    if (currentRequests>5){
+    if (currentRequests>5) {
         const ttl = await redisClient.ttl(key)
         throw new TooManyRequestsError(ttl, `Too many requests. Try again in ${ttl} seconds`)
     }

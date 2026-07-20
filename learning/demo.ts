@@ -22,3 +22,7 @@ try {
         console.log("caught  ->", err.message, "status:", err.status)
     }
 }
+
+// Makes this file a module so its top-level names stay local to it
+// (otherwise `AppError` here collides with the one in lesson.ts).
+export {}

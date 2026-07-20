@@ -1,11 +1,8 @@
-/**
- * Teaches TypeScript about the properties our middleware attaches to Request.
- * `user` is optional because it only exists after `auth` has run.
- */
+// `user` is optional because it only exists after `auth` has run.
 declare global {
     namespace Express {
         interface Request {
-            user?: { sub: number }
+            user?: { sub: number; jti: string; exp: number; sid: string }
         }
     }
 }

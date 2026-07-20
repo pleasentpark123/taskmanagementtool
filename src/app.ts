@@ -6,7 +6,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(router)
+app.use('/auth',router)
 app.use(notFoundHandler)
 app.use(errorHandler)
 export default app
