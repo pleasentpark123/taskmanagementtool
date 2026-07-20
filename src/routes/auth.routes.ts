@@ -23,6 +23,7 @@ router.get("/me", auth, async (req, res) => {
     }
     return res.json({success:true,user:r[0]})
 })
+
 router.post("/loginUser",rateLimiter,async(req,res)=>{
     const result = loginUserSchema.safeParse(req.body)
     if (!result.success){

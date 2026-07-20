@@ -1,5 +1,6 @@
 import { z } from 'zod'
 
+
 export const registerUserSchema = z.object({
     name: z
         .string()
@@ -20,6 +21,7 @@ export const loginUserSchema = z.object({
         .max(100,{message: "Password is too long"})
 
 })
+
 
 export type registerUserZ = z.infer<typeof registerUserSchema>
 export type loginUserZ = z.infer<typeof loginUserSchema>
